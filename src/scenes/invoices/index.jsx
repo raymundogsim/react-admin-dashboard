@@ -13,16 +13,15 @@ const Invoices = () => {
       field: "name",
       headerName: "Name",
       flex: 1,
-      cellClassName: "name-column--cell",
     },
     {
-      field: "phone",
-      headerName: "Phone Number",
+      field: "price",
+      headerName: "Price",
       flex: 1,
     },
     {
-      field: "email",
-      headerName: "Email",
+      field: "category",
+      headerName: "G",
       flex: 1,
     },
     {
@@ -43,11 +42,11 @@ const Invoices = () => {
   ];
 
   return (
-    <Box m="20px">
-      <Header title="INVOICES" subtitle="List of Invoice Balances" />
+    <Box m="20px" mt="5px">
+      <Header title="SALES"  />
       <Box
         m="40px 0 0 0"
-        height="75vh"
+        height="70vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -74,7 +73,7 @@ const Invoices = () => {
           },
         }}
       >
-        <DataGrid checkboxSelection rows={mockDataInvoices} columns={columns} />
+        <DataGrid checkboxSelection  rows={mockDataInvoices} columns={columns}/>
       </Box>
     </Box>
   );

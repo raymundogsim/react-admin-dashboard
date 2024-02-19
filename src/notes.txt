@@ -1,0 +1,149 @@
+      <Box m="20px" mt="5px">
+      <Header
+        title="INVENTORY"
+      />
+      <Box
+        m="40px 0 0 0"
+        height="70vh"
+        sx={{
+          "& .MuiDataGrid-root": {
+            border: "none",
+          },
+          "& .MuiDataGrid-cell": {
+            borderBottom: "none",
+          },
+          "& .name-column--cell": {
+            color: colors.greenAccent[300],
+          },
+          "& .MuiDataGrid-columnHeaders": {
+            backgroundColor: colors.blueAccent[700],
+            borderBottom: "none",
+          },
+          "& .MuiDataGrid-virtualScroller": {
+            backgroundColor: colors.primary[400],
+          },
+          "& .MuiDataGrid-footerContainer": {
+            borderTop: "none",
+            backgroundColor: colors.blueAccent[700],
+          },
+          "& .MuiCheckbox-root": {
+            color: `${colors.greenAccent[200]} !important`,
+          },
+          "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
+            color: `${colors.grey[100]} !important`,
+          },
+        }}
+      >
+        <DataGrid
+          rows={mockDataContacts}
+          columns={columns}
+          components={{ Toolbar: GridToolbar }}
+        />
+      </Box>
+    </Box>
+
+
+
+
+
+
+
+      // const columns = [
+  //   { field: "id", headerName: "ID", flex: 0.5 },
+  //   { field: "itemId", headerName: "Item ID" },
+  //   {
+  //     field: "name",
+  //     headerName: "Name",
+  //     flex: 1,
+  //     cellClassName: "name-column--cell",
+  //   },
+  //   {
+  //     field: "price",
+  //     headerName: "Price",
+  //     type: "number",
+  //     headerAlign: "left",
+  //     align: "left",
+  //   },
+  //   {
+  //     field: "category",
+  //     headerName: "Category",
+  //     flex: 1,
+  //   },
+  //   {
+  //     field: "branch",
+  //     headerName: "Branch",
+  //     flex: 1,
+  //   },
+  //   {
+  //     field: "date",
+  //     headerName: "Date",
+  //     flex: 1,
+  //   },
+  //   {
+  //     field: "quantity",
+  //     headerName: "Quantity",
+  //     flex: 1,
+  //   },
+  //   {
+  //     field: "image",
+  //     headerName: "Image",
+  //     flex: 1,
+  //   },
+  // ];
+
+
+  const [rnd, setRnd] = useState(0)
+
+
+
+ useEffect(() => {
+      console.log(rnd, "rnd")
+      console.log(setRnd, "setRnd")
+    },[rnd]);
+
+
+
+
+      // const getAllItems = () => {
+  //   axios.get('/api/items/get-item')
+  //   .then((res) => {
+            setItemData((res))
+  //       console.log(res, "pinanfetch")
+  //       console.log(itemData)
+  //   })
+  //   .catch((err) => {
+  //       console.log(err)
+  //   })
+  // }
+
+  
+
+  const getAllItems = async (req, res) => {
+    try {
+      const res = await axios.get('/api/items/get-item');
+      setItemData((res))
+      console.log(res.data, "pinanfetch");
+      console.log(itemData); 
+  
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+    DATE
+
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <TextField
+                              onChangeCapture={handleChanges("date")}
+                              required
+                              m="dense"
+                              id="date"
+                              name="date"
+                              label="Select Date"
+                              type="date"
+                              value={moment(formData.date).format("MM/DD/YYYY")}
+                              defaultValue={moment(formData.date).format(
+                                "MM/DD/YYYY"
+                              )}
+                          
+                            />
